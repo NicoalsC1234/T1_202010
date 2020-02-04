@@ -27,12 +27,17 @@ public class Lectura {
 		
 		JsonReader reader = new JsonReader(new FileReader(path));
 		
+		Type json= gson.fromJson(reader, Type.class);
 		
-		
-		
+		  
 		}
-		catch(Exception e)
+		catch(FileNotFoundException e)
 		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			
 			
 		}
 	}
