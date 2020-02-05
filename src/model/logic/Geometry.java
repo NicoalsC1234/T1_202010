@@ -1,15 +1,15 @@
-package model.data_structures;
+package model.logic;
 
 public class Geometry {
 	
-	private Geometry[] geometry;
+	private double[] geometry;
 
 	public Geometry()
 	{
-		Geometry [] geometry = new Geometry[3];
+		double [] geometry = new double[2];
 	}
 
-	public Geometry getGeometry(int i) {
+	public double getGeometry(int i) {
 		
 	return geometry[i];
 		

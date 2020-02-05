@@ -1,4 +1,4 @@
-package model.data_structures;
+package model.logic;
 
 public class ListaEncadenada <T extends Comparable <T>>{
 	private Nodo primero;

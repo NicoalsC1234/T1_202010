@@ -1,4 +1,4 @@
-package model.data_structures;
+package model.logic;
 import java.io.*;
 import java.util.*;
 import com.google.gson.*;

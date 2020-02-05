@@ -54,37 +54,7 @@ public class Controller <T extends Comparable<T>>{
 	                    	modelo.agregar(dato);
 	                    	view.printMessage("Se ha agregado un dato nuevo");
 	                    	break;
-	                    	
-	                    case 2:
-	                    	
-	                    	
-	                    	
-	     
-
-	                        
-
-
-	                        // read name from input
-
-	                        String name = reader.next();
-
-
-
-	                        // set name in model
-
-	                        model.setName(name);
-
-
-
-	                        // display name in view
-
-	                        view.displayOp0Data(name);
-
-	                        break;
-
-
-
-	           
+	                    		           
 	        } catch (InputMismatchException e) {
 
 	            run();
