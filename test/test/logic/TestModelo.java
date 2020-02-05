@@ -9,59 +9,39 @@ import org.junit.Test;
 public class TestModelo {
 	
 	private Modelo modelo;
-	private static int CAPACIDAD=100;
+	private static int LARGO = 100;
 	
-	@Before
+	
 	public void setUp1() {
-		modelo= new Modelo(CAPACIDAD);
+		modelo= new Modelo();
+		String dato = "";
 	}
 
 	public void setUp2() {
-		for(int i =0; i< CAPACIDAD;i++){
+		for(int i =0; i < LARGO;i++){
 			modelo.agregar(""+i);
 		}
 	}
 
-	@Test
-	public void testModelo() {
-		assertTrue(modelo!=null);
-		assertEquals(0, modelo.darTamano());  // Modelo con 0 elementos presentes.
-	}
-
-	@Test
-	public void testDarTamano() {
-		// TODO
-		setUp1();
-		setUp2();
-		assertTrue(CAPACIDAD == modelo.darTamano());
-	}
-
-	@Test
 	public void testAgregar() {
-		// TODO Completar la prueba
 		setUp1();
 		setUp2();
-		assertEquals(CAPACIDAD +1 , modelo.darTamano() +1);
+		
 	}
 
-	@Test
 	public void testBuscar() {
+		setUp1();
 		setUp2();
-		// TODO Completar la prueba
-		for (int i = 0; i < CAPACIDAD; i++) {
-			assertEquals(i, modelo.buscar(i));
+		for (int i = 0; i < LARGO; i++) {
+			assertEquals("", modelo.buscar(i));
 		}
 	}
 
-	@Test
 	public void testEliminar() {
 		setUp1();
 		setUp2();
-		assertEquals(null, modelo.eliminar(238));
+		assertEquals(null, modelo.eliminar(99));
 		assertTrue(modelo.eliminar(1).compareTo(1) == 0);
-		
-		
-		// TODO Completar la prueba
 		
 	}
 

@@ -29,14 +29,16 @@ public class ListaEncadenada <T extends Comparable <T>>{
 		return null;
 	}
 
-	public void eliminar(int i)
+	public T eliminar(int i)
 	{
 		Nodo nodo = primero;
 		int contador = 0;
+		T retorno = null;
 		if(i == 0)
 		{
 			primero = nodo.darSiguiente();
 			largo --;
+			retorno = buscar(i);
 		}
 		else
 		{
@@ -46,12 +48,17 @@ public class ListaEncadenada <T extends Comparable <T>>{
 				{
 					nodo.cambiarSiguiente(nodo.darSiguiente().darSiguiente());
 					largo --;
+					retorno = buscar(i);
 					break;
 				}
 				nodo = nodo.darSiguiente();
 				contador ++;
-			}	
+			}
 		}
+		
+		return retorno;
+		
+		
 	}
 
 	public void agregar(T dato)

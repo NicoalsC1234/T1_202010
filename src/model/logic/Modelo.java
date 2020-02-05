@@ -1,7 +1,7 @@
 package model.logic;
 
-import model.data_structures.ArregloDinamico;
-import model.data_structures.IArregloDinamico;
+import model.data_structures.ListaEncadenada;
+import model.data_structures.Nodo;
 
 /**
  * Definicion del modelo del mundo
@@ -11,33 +11,16 @@ public class Modelo<T extends Comparable<T>> {
 	/**
 	 * Atributos del modelo del mundo
 	 */
-	private IArregloDinamico<T> datos;
+	private ListaEncadenada <T> datos;
 	
 	/**
 	 * Constructor del modelo del mundo con capacidad predefinida
 	 */
 	public Modelo()
 	{
-		datos = new ArregloDinamico(7);
+		datos = new ListaEncadenada();
 	}
 	
-	/**
-	 * Constructor del modelo del mundo con capacidad dada
-	 * @param tamano
-	 */
-	public Modelo(int capacidad)
-	{
-		datos = new ArregloDinamico(capacidad);
-	}
-	
-	/**
-	 * Servicio de consulta de numero de elementos presentes en el modelo 
-	 * @return numero de elementos presentes en el modelo
-	 */
-	public int darTamano()
-	{
-		return datos.darTamano();
-	}
 
 	/**
 	 * Requerimiento de agregar dato
@@ -53,9 +36,9 @@ public class Modelo<T extends Comparable<T>> {
 	 * @param dato Dato a buscar
 	 * @return dato encontrado
 	 */
-	public T buscar(T dato)
+	public T buscar(Integer i)
 	{
-		return datos.buscar(dato);
+		return datos.buscar(i);
 	}
 	
 	/**
@@ -63,9 +46,9 @@ public class Modelo<T extends Comparable<T>> {
 	 * @param dato Dato a eliminar
 	 * @return dato eliminado
 	 */
-	public T eliminar(T dato)
+	public T eliminar(Integer i)
 	{
-		return datos.eliminar(dato);
+		return datos.eliminar(i);
 	}
 
 
