@@ -1,5 +1,6 @@
   package controller;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import model.logic.Modelo;
@@ -7,97 +8,90 @@ import view.View;
 
 public class Controller <T extends Comparable<T>>{
 
-	/* Instancia del Modelo*/
 	private Modelo modelo;
 	
-	/* Instancia de la Vista*/
 	private View view;
 	
-	/**
-	 * Crear la vista y el modelo del proyecto
-	 * @param capacidad tamaNo inicial del arreglo
-	 */
+	private int i = 0;
+	
+	private String dato = "";
+	
 	public Controller ()
 	{
 		view = new View();
 		modelo = new Modelo();
 	}
+	
+	 public void run() throws InputMismatchException {
+
+	        try {
+
+	            Scanner reader = new Scanner(System.in);
+
+	            boolean end = false;
+
+
+
+	            while (!end) {
+
+	                view.printMenu();
+
+	                int option = reader.nextInt();
+
+	                switch (option) {
+
+
+
+	                    case 0:
+	              
+	                    	modelo = new Modelo();
+	                    	view.printMessage("Se ha creado la Lista Enlazada");
+	                    	break;
+	                    	
+	                    case 1: 
+	                    	
+	                    	dato = reader.next();
+	                    	modelo.agregar(dato);
+	                    	view.printMessage("Se ha agregado un dato nuevo");
+	                    	break;
+	                    	
+	                    case 2:
+	                    	
+	                    	
+	                    	
+	     
+
+	                        
+
+
+	                        // read name from input
+
+	                        String name = reader.next();
+
+
+
+	                        // set name in model
+
+	                        model.setName(name);
+
+
+
+	                        // display name in view
+
+	                        view.displayOp0Data(name);
+
+	                        break;
+
+
+
+	           
+	        } catch (InputMismatchException e) {
+
+	            run();
+
+	        }
+
+	    }
 		
-	public void run() 
-	{
-		Scanner lector = new Scanner(System.in);
-		boolean fin = false;
-		String dato = "";
-		T respuesta = null;
-
-		while( !fin ){
-			view.printMenu();
-
-			int option = lector.nextInt();
-			switch(option){
-				case 1:
-					view.printMessage("--------- \nCrear Arreglo \nDar capacidad inicial del arreglo: ");
-				    int capacidad = lector.nextInt();
-				    modelo = new Modelo(capacidad); 
-				    view.printMessage("Arreglo Dinamico creado");
-				    view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
-					break;
-
-				case 2:
-					view.printMessage("--------- \nDar cadena (simple) a ingresar: ");
-					dato = lector.next();
-					modelo.agregar(dato);
-					view.printMessage("Dato agregado");
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
-					break;
-
-				case 3:
-					view.printMessage("--------- \nDar cadena (simple) a buscar: ");
-					dato = lector.next();
-					respuesta = (T) modelo.buscar(dato);
-					if ( respuesta != null)
-					{
-						view.printMessage("Dato encontrado: "+ respuesta);
-					}
-					else
-					{
-						view.printMessage("Dato NO encontrado");
-					}
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
-					break;
-
-				case 4:
-					view.printMessage("--------- \nDar cadena (simple) a eliminar: ");
-					dato = lector.next();
-					respuesta = (T) modelo.eliminar(dato);
-					if ( respuesta != null)
-					{
-						view.printMessage("Dato eliminado "+ respuesta);
-					}
-					else
-					{
-						view.printMessage("Dato NO eliminado");							
-					}
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
-					break;
-
-				case 5: 
-					view.printMessage("--------- \nContenido del Arreglo: ");
-					view.printModelo(modelo);
-					view.printMessage("Numero actual de elementos " + modelo.darTamano() + "\n---------");						
-					break;	
-					
-				case 6: 
-					view.printMessage("--------- \n Hasta pronto !! \n---------"); 
-					lector.close();
-					fin = true;
-					break;	
-
-				default: 
-					view.printMessage("--------- \n Opcion Invalida !! \n---------");
-					break;
-			}
-		}
-		
-	}	
+	
 }
