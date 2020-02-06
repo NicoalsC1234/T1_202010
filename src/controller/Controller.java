@@ -12,7 +12,7 @@ public class Controller <T extends Comparable<T>>{
 	
 	private View view;
 	
-	private int i = 0;
+	private int i = (int) Math.random();
 	
 	private String dato = "";
 	
@@ -54,14 +54,42 @@ public class Controller <T extends Comparable<T>>{
 	                    	modelo.agregar(dato);
 	                    	view.printMessage("Se ha agregado un dato nuevo");
 	                    	break;
+	                    	
+	                    case 2:
+	                    
+	                    	if(modelo.buscar(i) != null )
+	                    	{
+	                    		
+	                    		view.printMessage("El dato ha sido encontrado");
+	                    		
+	                    	}
+	                    	
+	                    	else{
+	                    		view.printMessage("El dato no ha sido encontrado");
+	                    	}
+	                    	
+	                    case 3:
+	                    	
+	                    	if(modelo.eliminar(i) != null)
+	                    	{
+	                    		view.printMessage("El dato ha sido eliminado");
+	                    	}
+	                    	else
+	                    	{
+	                    		view.printMessage("Dato no encontrado");
+	                    	}
+	                }
+	            }
+	        }
+	                    	
 	                    		           
-	        } catch (InputMismatchException e) {
+	         catch (InputMismatchException e) {
 
 	            run();
-
-	        }
-
-	    }
-		
-	
+	            
+	         }
+	 }
 }
+	         
+	         
+
